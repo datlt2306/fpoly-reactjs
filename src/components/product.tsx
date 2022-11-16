@@ -8,7 +8,6 @@ type Props = {};
 const Product = (props: Props) => {
     const { data, isLoading } = useGetProductsQuery(undefined);
     if (isLoading) return <div>Loading...</div>;
-    console.log(data);
     // const dispatch = useAppDispatch();
     // const products = useAppSelector((state) => state.products.value);
     // useEffect(() => {
