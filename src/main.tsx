@@ -4,6 +4,8 @@ import App from "./App";
 import store from "./app/store";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
+import { ApiProvider } from "@reduxjs/toolkit/dist/query/react";
+import { productApi } from "./api/apiSlice";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <Provider store={store}>

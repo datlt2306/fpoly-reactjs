@@ -8,7 +8,7 @@ import { useGetProductQuery } from "../api/apiSlice";
 
 type Props = {};
 
-const ProductEdit = (props: Props) => {
+const ProductAdd = (props: Props) => {
     const {
         register,
         handleSubmit,
@@ -36,4 +36,4 @@ const ProductEdit = (props: Props) => {
     );
 };
 
-export default ProductEdit;
+export default ProductAdd;
