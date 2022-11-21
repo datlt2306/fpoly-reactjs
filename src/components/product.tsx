@@ -1,20 +1,20 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../app/hook";
-import { fetchProducts } from "../slice/product";
+import { IProduct } from "../interfaces/product";
+import { useGetProductsQuery } from "../services/product";
 
 type Props = {};
 
 const Product = (props: Props) => {
-    const dispatch = useAppDispatch();
-    const products = useAppSelector((state) => state.products.value);
-    useEffect(() => {
-        dispatch(fetchProducts());
-    }, []);
+    const { data = [] as IProduct[], error, isLoading } = useGetProductsQuery(undefined);
+
+    if (error) return <div>Error</div>;
+    if (isLoading) return <div>...Loading</div>;
     return (
         <div>
             <Link to="/admin/products/add">Add</Link>
-            {products.map((product) => (
+            {data.map((product: IProduct) => (
                 <div key={product.id}>{product.name}</div>
             ))}
         </div>
