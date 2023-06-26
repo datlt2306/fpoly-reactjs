@@ -1,7 +1,6 @@
-import { PayloadAction, SerializedError, createSlice } from "@reduxjs/toolkit";
-import { addUser, fetchUsers } from "../store";
-import { RejectedActionFromAsyncThunk } from "@reduxjs/toolkit/dist/matchers";
 import { IUser } from "@/interfaces/user";
+import { PayloadAction, SerializedError, createSlice } from "@reduxjs/toolkit";
+import { addUser, fetchUsers, deleteUser } from "../store";
 
 
 interface UserState {
@@ -20,6 +19,7 @@ const userSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: (builder) => {
+        // FETCH USER
         builder.addCase(fetchUsers.pending, (state) => {
             state.isLoading = true;
         })
@@ -32,6 +32,8 @@ const userSlice = createSlice({
             state.error = action.error;
         })
 
+
+        // ADD USER
         builder.addCase(addUser.pending, (state) => {
             state.isLoading = true;
         })
@@ -40,6 +42,20 @@ const userSlice = createSlice({
             state.data.push(action.payload);
         })
         builder.addCase(addUser.rejected, (state, action) => {
+            state.isLoading = false;
+            state.error = action.error;
+        })
+
+        // DELETE USER
+        builder.addCase(deleteUser.pending, (state) => {
+            state.isLoading = true;
+        })
+        builder.addCase(deleteUser.fulfilled, (state, action) => {
+            console.log(action.payload);
+            state.isLoading = false;
+            state.data = state.data.filter((user) => user.id != action.payload);
+        })
+        builder.addCase(deleteUser.rejected, (state, action) => {
             state.isLoading = false;
             state.error = action.error;
         })

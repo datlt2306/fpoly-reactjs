@@ -1,4 +1,5 @@
 import { IUser } from "@/interfaces/user";
+import { pause } from "@/utils/pause";
 import { createAsyncThunk, AsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios';
 
@@ -9,7 +10,6 @@ const fetchUsers: AsyncThunk<IUser[], void, {}> = createAsyncThunk('user/fetchUs
     return response.data;
 })
 
-// Dev Online
-const pause = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
 
 export { fetchUsers };

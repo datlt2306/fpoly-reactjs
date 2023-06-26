@@ -2,6 +2,7 @@ import { IUser } from "@/interfaces/user";
 import { createAsyncThunk, AsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios';
 import { faker } from '@faker-js/faker';
+import { pause } from "@/utils/pause";
 
 
 const addUser: AsyncThunk<IUser, void, {}> = createAsyncThunk('user/addUsers', async () => {
@@ -11,8 +12,5 @@ const addUser: AsyncThunk<IUser, void, {}> = createAsyncThunk('user/addUsers', a
     await pause(1000);
     return response.data;
 })
-
-// Dev Online
-const pause = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 export { addUser };

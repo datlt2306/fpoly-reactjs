@@ -17,5 +17,6 @@ export type AppThunk<ReturnType = void> = ThunkAction<
 
 export * from './thunks/fetchUser';
 export * from './thunks/addUser';
+export * from './thunks/deleteUser';
 
 export default store;

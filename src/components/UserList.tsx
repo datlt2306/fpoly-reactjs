@@ -4,6 +4,8 @@ import { addUser, fetchUsers } from "@/store/store";
 import { useEffect } from "react";
 import Skeleton from "react-loading-skeleton";
 import Button from "./Button";
+import UserListItem from "./UserListItem";
+import { IUser } from "@/interfaces/user";
 
 const UserList = () => {
     const [doFetchUsers, isLoadingUsers, loadingUsersError] = useThunk(fetchUsers);
@@ -17,24 +19,19 @@ const UserList = () => {
     const handleAdd = () => {
         doCreateUser();
     };
-    if (isLoadingUsers) return <Skeleton count={5} />;
-    if (loadingUsersError) return <div className="bg-red-500">Error Fetching Data</div>;
 
-    const renderUser = () => {
-        return data.map((user) => <div key={user.id}>{user.name}</div>);
-    };
+    let content;
+    if (isLoadingUsers) return (content = <Skeleton count={5} />);
+    if (loadingUsersError) return (content = <div className="bg-red-500">Error Fetching Data</div>);
+    content = data.map((user) => <UserListItem key={user.id} user={user} />);
 
     return (
         <div className="bg-red-500">
-            {isCreatingUser ? (
-                "Creating User..."
-            ) : (
-                <Button primary onClick={handleAdd}>
-                    Add User
-                </Button>
-            )}
+            <Button loading={isCreatingUser} primary onClick={handleAdd}>
+                Add User
+            </Button>
             {createUserError && "Error Creating User"}
-            {renderUser()}
+            {content}
         </div>
     );
 };
