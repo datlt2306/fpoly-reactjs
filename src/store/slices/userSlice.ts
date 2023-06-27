@@ -50,10 +50,9 @@ const userSlice = createSlice({
         builder.addCase(deleteUser.pending, (state) => {
             state.isLoading = true;
         })
-        builder.addCase(deleteUser.fulfilled, (state, action) => {
-            console.log(action.payload);
+        builder.addCase(deleteUser.fulfilled, (state, action: PayloadAction<IUser>) => {
             state.isLoading = false;
-            state.data = state.data.filter((user) => user.id != action.payload);
+            state.data = state.data.filter((user) => user.id != action.payload.id);
         })
         builder.addCase(deleteUser.rejected, (state, action) => {
             state.isLoading = false;

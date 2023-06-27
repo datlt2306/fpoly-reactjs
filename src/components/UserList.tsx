@@ -26,8 +26,8 @@ const UserList = () => {
     content = data.map((user) => <UserListItem key={user.id} user={user} />);
 
     return (
-        <div className="bg-red-500">
-            <Button loading={isCreatingUser} primary onClick={handleAdd}>
+        <div>
+            <Button loading={isCreatingUser} primary onClick={handleAdd} className="mb-3 rounded">
                 Add User
             </Button>
             {createUserError && "Error Creating User"}

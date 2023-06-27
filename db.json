@@ -1,58 +1,40 @@
 {
   "users": [
     {
-      "name": "Glenn Cruickshank",
-      "id": "MZqvkBz"
+      "name": "Greg Ullrich",
+      "id": 1
     },
     {
-      "name": "Elsa Franey",
-      "id": "_X9yeGg"
+      "name": "Clayton Lang",
+      "id": 2
     },
     {
-      "name": "Karl Lowe-Schuster",
-      "id": "AwvvrqH"
-    },
-    {
-      "name": "Roland Shields MD",
-      "id": "4nhP2ox"
-    },
-    {
-      "name": "Jesus Moen",
-      "id": "FaNFv8Z"
-    },
-    {
-      "name": "Marion Hyatt",
-      "id": "D3S28Hs"
-    },
-    {
-      "name": "Tricia Runolfsdottir MD",
-      "id": "MzCbDrv"
-    },
-    {
-      "name": "Roman Mertz",
-      "id": "HTFfszG"
-    },
-    {
-      "name": "Shawna Hahn-Doyle",
-      "id": "Ua-LMmj"
-    },
-    {
-      "name": "Tami Reichel",
-      "id": "xrmCIO-"
-    },
-    {
-      "name": "Lester Brown",
-      "id": "xlxvcCj"
-    },
-    {
-      "name": "Noah Bernier",
-      "id": "YAE3Sd-"
-    },
-    {
-      "name": "Stewart Boyle",
-      "id": "QxlvA2P"
+      "name": "Ms. Charlene Kuphal Jr.",
+      "id": 3
     }
   ],
-  "albums": [],
-  "photos": []
+  "albums": [
+    {
+      "userId": 1,
+      "name": "Incredible Cotton Keyboard",
+      "id": 10
+    },
+    {
+      "userId": 1,
+      "name": "Awesome Soft Keyboard",
+      "id": 11
+    }
+  ],
+  "photos": [
+    {
+      "albumId": 10,
+      "url": "https://picsum.photos/seed/PXWYGV5TF/150/150",
+      "id": 1
+    },
+    {
+      "albumId": 10,
+      "url": "https://loremflickr.com/150/150?lock=639287167025152",
+      "id": 2
+    }
+  ]
 }
